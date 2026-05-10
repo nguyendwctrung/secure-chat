@@ -13,6 +13,6 @@ func UserRoutes(router *gin.RouterGroup) {
 		auth.POST("/register", handlers.Register)
 		auth.POST("/login", handlers.Login)
 		auth.GET("/profile", middleware.AuthMiddleware(), handlers.Profile,)
+		auth.GET("/messages", middleware.AuthMiddleware(), handlers.GetMessage,)
 	}
-
 }

@@ -33,7 +33,10 @@ func ConnectDatabase(cfg *config.Config) {
 
 	log.Println("Database connected successfully")
 
-	err = DB.AutoMigrate(&models.User{})
+	err = DB.AutoMigrate(
+		&models.User{}, 
+		&models.Message{},
+	)
 	
 	if err != nil {
 		log.Fatal("Failed to migrate database: ", err)
