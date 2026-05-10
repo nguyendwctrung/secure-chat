@@ -6,8 +6,9 @@ import (
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	
+
 	"github.com/nguyendwctrung/secure-chat/internal/config"
+	"github.com/nguyendwctrung/secure-chat/internal/models"
 )
 
 var DB *gorm.DB
@@ -31,4 +32,10 @@ func ConnectDatabase(cfg *config.Config) {
 	DB = database
 
 	log.Println("Database connected successfully")
+
+	err = DB.AutoMigrate(&models.User{})
+	
+	if err != nil {
+		log.Fatal("Failed to migrate database: ", err)
+	}
 }

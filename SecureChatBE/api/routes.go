@@ -2,10 +2,8 @@ package api
 
 import "github.com/gin-gonic/gin"
 
-func RegisterRoutes(router *gin.Engine) {
+func SetupRoutes(router *gin.Engine) {
 	api := router.Group("/api")
 
-	{
-		RegisterUserRoutes(api)
-	}
+	UserRoutes(api)
 }

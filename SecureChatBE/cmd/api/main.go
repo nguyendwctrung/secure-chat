@@ -14,8 +14,9 @@ func main() {
 	database.ConnectDatabase(cfg)
 
 	router := gin.Default()
+	router.SetTrustedProxies(nil)
 
-	api.RegisterRoutes(router)
+	api.SetupRoutes(router)
 
 	router.Run(":" + cfg.Port)
 }
