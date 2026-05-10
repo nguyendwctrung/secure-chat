@@ -1,0 +1,13 @@
+
+.idea/
+.vscode/
+*.log
+
+# Backend
+SecureChatBE/tmp/
+SecureChatBE/*.exe
+
+# Frontend
+SecureChatFE/.gradle/
+SecureChatFE/build/
+SecureChatFE/local.properties
